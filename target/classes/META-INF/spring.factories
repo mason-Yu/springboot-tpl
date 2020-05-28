@@ -1,0 +1,17 @@
+# Application Context Initializers
+#org.springframework.context.ApplicationContextInitializer=
+
+# Application Listeners
+org.springframework.context.ApplicationListener=org.springframework.boot.system.ApplicationPidFileWriter,\
+org.springframework.boot.system.EmbeddedServerPortFileWriter,\
+com.hanhan.store.generated.context.ApplicationStartedListener,\
+com.hanhan.store.generated.context.ApplicationEnvironmentPreparedListener,\
+com.hanhan.store.generated.context.ApplicationPreparedListener,\
+com.hanhan.store.generated.context.ApplicationReadyListener,\
+com.hanhan.store.generated.context.ApplicationContextStartedListener,\
+com.hanhan.store.generated.context.ApplicationContextRefreshedListener,\
+com.hanhan.store.generated.context.ApplicationContextStoppedListener,\
+com.hanhan.store.generated.context.ApplicationContextClosedListener
+
+#Security Configurer
+#org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer=sample.MyClassThatExtendsAbstractHttpConfigurer,sample.OtherThatExtendsAbstractHttpConfigurer

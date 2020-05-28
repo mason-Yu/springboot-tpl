@@ -1,0 +1,22 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.hanhan.store.generated.autoconfigure.AppProperties",
+      "name": "application",
+      "type": "com.hanhan.store.generated.autoconfigure.AppProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.hanhan.store.generated.autoconfigure.AppProperties",
+      "name": "application.security",
+      "type": "com.hanhan.store.generated.autoconfigure.AppSecurityProperties"
+    },
+    {
+      "sourceType": "com.hanhan.store.generated.autoconfigure.AppProperties",
+      "name": "application.sys-component",
+      "type": "com.hanhan.store.generated.autoconfigure.AppSysComponentProperties"
+    }
+  ]
+}

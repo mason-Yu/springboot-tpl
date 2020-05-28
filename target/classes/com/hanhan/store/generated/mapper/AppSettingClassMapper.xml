@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hanhan.store.generated.mapper.AppSettingClassMapper">
+  <resultMap id="BaseResultMap" type="com.hanhan.store.model.po.AppSettingClass">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="load_type" jdbcType="INTEGER" property="loadType" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+    <result column="content_md5" jdbcType="CHAR" property="contentMd5" />
+    <result column="class_file_name" jdbcType="VARCHAR" property="classFileName" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.hanhan.store.model.po.AppSettingClass">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="class_file_data" jdbcType="LONGVARBINARY" property="classFileData" />
+    <result column="json_schema" jdbcType="LONGVARCHAR" property="jsonSchema" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, load_type, class_name, content_md5, class_file_name
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    class_file_data, json_schema
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.hanhan.store.model.po.AppSettingClassExample" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from app_setting_class
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.hanhan.store.model.po.AppSettingClassExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from app_setting_class
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from app_setting_class
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    delete from app_setting_class
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hanhan.store.model.po.AppSettingClassExample">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    delete from app_setting_class
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hanhan.store.model.po.AppSettingClass">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    insert into app_setting_class (id, load_type, class_name, 
+      content_md5, class_file_name, class_file_data, 
+      json_schema)
+    values (#{id,jdbcType=CHAR}, #{loadType,jdbcType=INTEGER}, #{className,jdbcType=VARCHAR}, 
+      #{contentMd5,jdbcType=CHAR}, #{classFileName,jdbcType=VARCHAR}, #{classFileData,jdbcType=LONGVARBINARY}, 
+      #{jsonSchema,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hanhan.store.model.po.AppSettingClass">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    insert into app_setting_class
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="loadType != null">
+        load_type,
+      </if>
+      <if test="className != null">
+        class_name,
+      </if>
+      <if test="contentMd5 != null">
+        content_md5,
+      </if>
+      <if test="classFileName != null">
+        class_file_name,
+      </if>
+      <if test="classFileData != null">
+        class_file_data,
+      </if>
+      <if test="jsonSchema != null">
+        json_schema,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="loadType != null">
+        #{loadType,jdbcType=INTEGER},
+      </if>
+      <if test="className != null">
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="contentMd5 != null">
+        #{contentMd5,jdbcType=CHAR},
+      </if>
+      <if test="classFileName != null">
+        #{classFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="classFileData != null">
+        #{classFileData,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="jsonSchema != null">
+        #{jsonSchema,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hanhan.store.model.po.AppSettingClassExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select count(*) from app_setting_class
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update app_setting_class
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=CHAR},
+      </if>
+      <if test="record.loadType != null">
+        load_type = #{record.loadType,jdbcType=INTEGER},
+      </if>
+      <if test="record.className != null">
+        class_name = #{record.className,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contentMd5 != null">
+        content_md5 = #{record.contentMd5,jdbcType=CHAR},
+      </if>
+      <if test="record.classFileName != null">
+        class_file_name = #{record.classFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classFileData != null">
+        class_file_data = #{record.classFileData,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="record.jsonSchema != null">
+        json_schema = #{record.jsonSchema,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update app_setting_class
+    set id = #{record.id,jdbcType=CHAR},
+      load_type = #{record.loadType,jdbcType=INTEGER},
+      class_name = #{record.className,jdbcType=VARCHAR},
+      content_md5 = #{record.contentMd5,jdbcType=CHAR},
+      class_file_name = #{record.classFileName,jdbcType=VARCHAR},
+      class_file_data = #{record.classFileData,jdbcType=LONGVARBINARY},
+      json_schema = #{record.jsonSchema,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update app_setting_class
+    set id = #{record.id,jdbcType=CHAR},
+      load_type = #{record.loadType,jdbcType=INTEGER},
+      class_name = #{record.className,jdbcType=VARCHAR},
+      content_md5 = #{record.contentMd5,jdbcType=CHAR},
+      class_file_name = #{record.classFileName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hanhan.store.model.po.AppSettingClass">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update app_setting_class
+    <set>
+      <if test="loadType != null">
+        load_type = #{loadType,jdbcType=INTEGER},
+      </if>
+      <if test="className != null">
+        class_name = #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="contentMd5 != null">
+        content_md5 = #{contentMd5,jdbcType=CHAR},
+      </if>
+      <if test="classFileName != null">
+        class_file_name = #{classFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="classFileData != null">
+        class_file_data = #{classFileData,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="jsonSchema != null">
+        json_schema = #{jsonSchema,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.hanhan.store.model.po.AppSettingClass">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update app_setting_class
+    set load_type = #{loadType,jdbcType=INTEGER},
+      class_name = #{className,jdbcType=VARCHAR},
+      content_md5 = #{contentMd5,jdbcType=CHAR},
+      class_file_name = #{classFileName,jdbcType=VARCHAR},
+      class_file_data = #{classFileData,jdbcType=LONGVARBINARY},
+      json_schema = #{jsonSchema,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hanhan.store.model.po.AppSettingClass">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update app_setting_class
+    set load_type = #{loadType,jdbcType=INTEGER},
+      class_name = #{className,jdbcType=VARCHAR},
+      content_md5 = #{contentMd5,jdbcType=CHAR},
+      class_file_name = #{classFileName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>
